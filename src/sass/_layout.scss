@@ -1,0 +1,255 @@
+@import "custom-variables";
+@import "default-clases";
+
+h1 {
+  margin-bottom: 18px;
+  font-weight: 700;
+  line-height: 1.11;
+}
+
+p {
+  margin-bottom: 20px;
+  font-family: 'Roboto';
+  font-weight: 300;
+  line-height: 1.2;
+}
+
+.main-header {
+  padding: 1.42em 0 .71em;
+  z-index: 500;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  
+  @media (min-width: $screen-sm-min) {
+    padding: 1.42em 0 .71em;
+  }
+  @media (min-width: $screen-md-min) {
+    padding: 3em 0 .71em;
+  }
+}
+
+.btn-pr {
+  background: url(../img/btn-bg.png) no-repeat center center;
+  background-color: transparent;
+  background-size: auto;
+  border-radius: 0;
+  width: 300px;
+  height: 117px;
+  @extend %link-font;
+  margin: 10px 0 20px;
+  transition: all .1s ease-out;
+  
+  &:hover {
+    filter: drop-shadow(0 0 30px $btnBlur);
+  }
+  
+  &:hover,
+  &:focus {
+    color: $link-color;
+  }
+  
+  &:active,
+  &:focus,
+  &:active:focus {
+    outline: none;
+  }
+  
+  &:active {
+    background-image: url(../img/btn-bg.png);
+  }
+  
+}
+
+.icon {
+  display: inline-block;
+}
+
+.wrapper {
+  position: relative;
+  z-index: 4;
+}
+
+.parallax {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  z-index: -1;
+  overflow: hidden;
+  visibility: collapse;
+  
+  @media (min-width: $screen-md-min) {
+    visibility: visible;
+  }
+}
+
+.parallax-layer {
+  position: absolute;
+  width: 110%;
+  height: 90%;
+  left: -5%;
+  bottom: 5%;
+  background-image: url(../img/main-bg.png);
+  background-position: center bottom;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.main {
+  position: relative;
+  z-index: 2;
+  max-width: 100%;
+}
+
+.nav-main {
+  display: flex;
+  justify-content: space-between;
+  margin-left: -10px;
+  
+  .nav-main-phone {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    
+    .phone-content {
+      display: none;
+      
+      @media (min-width: 450px) {
+        display: flex;
+        flex-direction: column;
+        margin-left: 12px;
+      }
+    }
+    
+    .phone-n {
+      font-family: 'Roboto';
+      font-size: ceil(($font-size-base * 1.14));
+      font-weight: 300;
+      line-height: 1.2;
+      @media (min-width: $screen-sm-min) {
+        font-size: ceil(($font-size-base * 1.42));
+      }
+    }
+    
+  }
+}
+
+.presentation {
+  padding-top: 4em;
+  height: auto;
+
+  @media (min-width: $screen-md-min) {
+    padding-top: 10em;
+  }
+  @media (min-width: $screen-lg-min) {
+    padding-top: 12.28em;
+  }
+  
+  .presentation-inner {
+    padding-top: 50px;
+    padding-bottom: 20px;
+    position: relative;
+    
+    @media (min-width: $screen-sm-min) {
+      background-image: url("../img/lion-bg.png");
+      background-repeat: no-repeat;
+      background-position: right bottom;
+      background-size: contain;
+    }
+    
+    .presentation-inner-content {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 100%;
+      text-align: center;
+      align-items: center;
+
+      @media (min-width: $screen-sm-min) {
+        text-align: left;
+        align-items: flex-start;
+      }
+    }
+    
+    h1 {
+      font-size: ceil(($font-size-base * 2));
+      
+      @media (min-width: $screen-sm-min) {
+        font-size: ceil(($font-size-base * 2.57));
+      }
+      @media (min-width: $screen-md-min) {
+        font-size: floor(($font-size-base * 3.6));
+      }
+      @media (min-width: $screen-lg-min) {
+        font-size: ceil(($font-size-base * 4.2));
+      }
+    }
+    
+    p {
+      width: 80%;
+      padding-right: 0;
+      font-size: ceil(($font-size-base * 1.14));
+      
+      @media (min-width: $screen-sm-min) {
+        width: 50%;
+      }
+      @media (min-width: $screen-md-min) {
+        font-size: ceil(($font-size-base * 1.28));
+      }
+      @media (min-width: $screen-lg-min) {
+        padding-right: 40px;
+        font-size: ceil(($font-size-base * 1.42));
+      }
+      
+    }
+    
+    .link-block-v {
+      position: absolute;
+      right: 3px;
+      bottom: 50px;
+      visibility: collapse;
+      
+      .v-link {
+        position: absolute;
+        right: 20px;
+        bottom: 0;
+        top: -200px;
+        height: 20px;
+        margin-right: -2px;
+        transform-origin: right top 0;
+        transform: rotate(-90deg);
+        @extend %link-font;
+        
+        &::before {
+          content: "";
+          position: absolute;
+          left: -14%;
+          top: 8%;
+          background: url(../img/arrow-d.png) no-repeat center center;
+          width: 20px;
+          height: 20px;
+          transform: rotate(90deg);
+          animation: down 2s cubic-bezier(.6,1.83,.68,.49) infinite;
+        }
+      }
+      
+      @media (min-width: $screen-sm-min) {
+        visibility: visible;
+      }
+    }
+
+  }
+}
+
+.decor-l {
+  margin-bottom: 18px;
+}
+
+@keyframes down {
+  0%, 100% { transform: translateX(0) rotate(90deg); }
+  50% { transform: translateX(-20px) rotate(90deg); }
+}

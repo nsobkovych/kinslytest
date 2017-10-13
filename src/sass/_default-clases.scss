@@ -1,0 +1,61 @@
+@import "custom-variables";
+
+%link-font {
+  font-family: 'PT Sans Narrow';
+  font-weight: 700;
+  font-size: $link-font-size;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  @media (min-width: $screen-sm-min) {
+    font-size: floor(($font-size-base * 1.36));
+  }
+}
+
+.reg-link {
+  padding: 0;
+  color: $regLinkColor;
+  line-height: 1.2;
+  text-align: left;
+  
+  &:hover,
+  &:focus {
+    color: $regLinkColor;
+  }
+  
+  &:active,
+  &:focus {
+    outline: none;
+  }
+  
+  &:active:focus {
+    outline: none;
+  }
+}
+
+.h-link {
+  @extend %link-font;
+  
+  .h-link-text {
+    position: relative;
+    
+    &::after {
+      content: "";
+      position: absolute;
+      right: 0;
+      bottom: -3px;
+      height: 2px;
+      width: 0;
+      background-color: $regLinkColor;
+      transition: all .3s linear;
+    }
+    
+    &:hover:after {
+      left: 0;
+      width: 100%;
+    }
+  }
+}
+
+.text-up {
+  text-transform: uppercase;
+}
